@@ -674,18 +674,18 @@ $(document).ready(function() {
         updateCustomLinesList();
         
         // Add color selection radio buttons to the page
-        if (!$('#color-selection').length) {
-            const colorSelectionHTML = `
-                <div id="color-selection" class="form-group">
-                    <h2>Play As</h2>
-                    <div class="radio-group">
-                        <label><input type="radio" name="play-as" value="white" checked> White</label>
-                        <label><input type="radio" name="play-as" value="black"> Black</label>
-                    </div>
-                </div>
-            `;
-            $('.opening-selector').append(colorSelectionHTML);
-        }
+        // if (!$('#color-selection').length) {
+        //     const colorSelectionHTML = `
+        //         // <div id="color-selection" class="form-group">
+        //         //     <h2>Play As</h2>
+        //         //     <div class="radio-group">
+        //         //         <label><input type="radio" name="play-as" value="white" checked> White</label>
+        //         //         <label><input type="radio" name="play-as" value="black"> Black</label>
+        //         //     </div>
+        //         // </div>
+        //     `;
+        //     $('.opening-selector').append(colorSelectionHTML);
+        // }
         
         $('#start-training').on('click', startTraining);
         $('#save-line').on('click', saveCustomLine);
