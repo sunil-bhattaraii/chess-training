@@ -1,0 +1,16 @@
+{
+  "name": "Scotch Game",
+  "moves": ["e4", "e5", "Nf3", "Nc6", "d4"],
+  "variations": {
+    "Mieses Variation": ["exd4", "Nxd4", "Nf6", "Nc3", "Bb4"],
+    "Schmidt Variation": ["exd4", "Nxd4", "Nf6", "Nxc6", "bxc6", "e5"],
+    "Classical Variation": ["exd4", "Nxd4", "Bc5"],
+    "Göring Gambit": ["exd4", "c3"],
+    "Haxo Gambit": ["exd4", "Bc4"],
+    "Scotch Four Knights": ["exd4", "Nxd4", "Nf6", "Nc3", "Bb4"],
+    "Steinitz Variation": ["exd4", "Nxd4", "Qh4"],
+    "Blunder Punishment 1": ["Nxd4", "Nxe5", "Qf6", "Nf3", "Nxf3+"],
+    "Blunder Punishment 2": ["exd4", "Nxd4", "Nxd4", "Qxd4", "c5", "Qe5+", "Be7", "Qxg7"],
+    "Blunder Punishment 3": ["exd4", "Nxd4", "Nf6", "Nc3", "Bb4", "Nxc6", "bxc6", "e5", "Nd5", "Qg4"]
+  }
+}
