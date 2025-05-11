@@ -73,7 +73,7 @@ h3 {
     gap: 5px;
     font-size: 1rem;
     cursor: pointer;
-    background-color: #e0f7fa;
+    background-color: #f4f4f4;
     padding: 10px;
     border-radius: 10px;
 }
@@ -242,6 +242,17 @@ button#reset-btn:hover {
 .move-quality.brilliant {
     color: #8e44ad;
     font-weight: bold;
+}
+
+footer{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+    font-family: monospace;
+    background-color: rgb(235, 235, 235);
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
