@@ -1,118 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Train your chess openings with this interactive trainer.">
-    <meta name="keywords" content="chess, chess openings, chess trainer, chessboard, chess training">
-    <meta name="author" content="Sunil Bhattarai">
-    <link rel="icon" href="icons/wp.png" type="image/png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Train your chess openings with this interactive trainer."
+    />
+    <meta
+      name="keywords"
+      content="chess, chess openings, chess trainer, chessboard, chess training"
+    />
+    <meta name="author" content="Sunil Bhattarai" />
+    <meta property="og:title" content="Your Website Title" />
+    <meta
+      property="og:description"
+      content="Master chess with our interactive training platform designed for learners of all levels. Sharpen your skills, solve puzzles, and elevate your strategy."
+    />
+    <meta property="og:image" content="images/cover.png" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="icons/wp.png" type="image/png" />
     <title>Chess Opening Trainer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css"
+    />
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1>Chess Opening Trainer</h1>
+      <h1>Chess Opening Trainer</h1>
 
-        <div class="main-content">
-            <div class="sidebar">
-                <div class="opening-selector">
-                    <h2>Openings</h2>
-                    <select id="opening-dropdown">
-                        <option value="sicilian-defense">Sicilan Defense</option>
-                        <option value="scotch-game">Scotch Game</option>
-                        <option value="vienna-game">Vienna Game</option>
-                        <option value="four-knights-game">Four Knights Game</option>
-                        <option value="petrovs-defense">Petrov's Defense</option>
-                        <option value="kings-gambit">King's Gambit</option>
-                        <option value="philidor-defense">Philidor Defense</option>
-                        <option value="scandinavian-defense">Scandinavian Defense</option>
-                        <option value="pirc-defense">Pirc Defense</option>
-                        <option value="alekhines-defense">Alekhine's Defense</option>
-                        <option value="modern-defense">Modern Defense</option>
-                        <option value="nimzo-indian-defense">Nimzo-Indian Defense</option>
-                        <option value="queens-indian-defense">Queen's Indian Defense</option>
-                        <option value="grunfeld-defense">Grünfeld Defense</option>
-                        <option value="slav-defense">Slav Defense</option>
-                        <option value="benko-gambit">Benko Gambit</option>
-                        <option value="dutch-defense">Dutch Defense</option>
-                        <option value="reti-opening">Réti Opening</option>
-                        <option value="birds-opening">Bird's Opening</option>
-                        <option value="catalan-opening">Catalan Opening</option>
-                        <option value="kings-indian-attack">King's Indian Attack</option>
-                    </select>
-                </div>
-                <div id="color-selection" class="form-group">
-                    <h2>Play As</h2>
-                    <div class="radio-group">
-                        <label><input type="radio" name="play-as" value="white" checked>White</label>
-                        <label><input type="radio" name="play-as" value="black" >Black</label>
-                    </div>
-                </div>
-                <button id="start-training">Start Training</button>
-
-                <div class="move-history">
-                    <h3>Move History</h3>
-                    <div id="variation-display"></div>
-                
-                    <div id="pgn-display"></div>
-                    </div>
+      <div class="main-content">
+        <div class="sidebar">
+          <div class="opening-selector">
+            <h2>Openings</h2>
+            <select id="opening-dropdown">
+              <option value="sicilian-defense">Sicilan Defense</option>
+              <option value="scotch-game">Scotch Game</option>
+              <option value="vienna-game">Vienna Game</option>
+              <option value="four-knights-game">Four Knights Game</option>
+              <option value="petrovs-defense">Petrov's Defense</option>
+              <option value="kings-gambit">King's Gambit</option>
+              <option value="philidor-defense">Philidor Defense</option>
+              <option value="scandinavian-defense">Scandinavian Defense</option>
+              <option value="pirc-defense">Pirc Defense</option>
+              <option value="alekhines-defense">Alekhine's Defense</option>
+              <option value="modern-defense">Modern Defense</option>
+              <option value="nimzo-indian-defense">Nimzo-Indian Defense</option>
+              <option value="queens-indian-defense">
+                Queen's Indian Defense
+              </option>
+              <option value="grunfeld-defense">Grünfeld Defense</option>
+              <option value="slav-defense">Slav Defense</option>
+              <option value="benko-gambit">Benko Gambit</option>
+              <option value="dutch-defense">Dutch Defense</option>
+              <option value="reti-opening">Réti Opening</option>
+              <option value="birds-opening">Bird's Opening</option>
+              <option value="catalan-opening">Catalan Opening</option>
+              <option value="kings-indian-attack">King's Indian Attack</option>
+            </select>
+          </div>
+          <div id="color-selection" class="form-group">
+            <h2>Play As</h2>
+            <div class="radio-group">
+              <label
+                ><input
+                  type="radio"
+                  name="play-as"
+                  value="white"
+                  checked
+                />White</label
+              >
+              <label
+                ><input type="radio" name="play-as" value="black" />Black</label
+              >
             </div>
+          </div>
+          <button id="start-training">Start Training</button>
 
-            <div class="board-container">
-                <div id="board"></div>
-                <div class="controls">
-                    <div class="status" id="status">Select an opening to start training</div>
-                    <div class="move-quality" id="move-quality"></div>
-                    <div class="buttons">
-                        <button id="reset-btn">Reset Position</button>
-                        <button id="flip-btn">Flip Board</button>
-                    </div>
-                </div>
-            </div>
+          <div class="move-history">
+            <h3>Move History</h3>
+            <div id="variation-display"></div>
+
+            <div id="pgn-display"></div>
+          </div>
         </div>
 
-        <div class="info-panel">
-            <div class="custom-line">
-                <h2>Custom Line</h2>
-                <div class="form-group">
-                    <label for="pgn-input">Enter PGN or Moves:</label>
-                    <textarea id="pgn-input" placeholder="e.g. 1. e4 e5 2. Nf3 Nc6 3. Bb5"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="line-name">Line Name:</label>
-                    <input type="text" id="line-name" placeholder="My Custom Line">
-                </div>
-                <button id="save-line">Save Line</button>
+        <div class="board-container">
+          <div id="board"></div>
+          <div class="controls">
+            <div class="status" id="status">
+              Select an opening to start training
             </div>
-            
-            <div class="custom-lines-list">
-                <h2>My Custom Lines</h2>
-                <ul id="custom-lines"></ul>
+            <div class="move-quality" id="move-quality"></div>
+            <div class="buttons">
+              <button id="reset-btn">Reset Position</button>
+              <button id="flip-btn">Flip Board</button>
             </div>
-            <div class="statistics">
-                <h3>Training Statistics</h3>
-                <div id="stats">
-                    <p>Attempts: <span id="attempts">0</span></p>
-                    <p>Correct Moves: <span id="correct">0</span></p>
-                    <p>Incorrect Moves: <span id="incorrect">0</span></p>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="info-panel">
+        <div class="custom-line">
+          <h2>Custom Line</h2>
+          <div class="form-group">
+            <label for="pgn-input">Enter PGN or Moves:</label>
+            <textarea
+              id="pgn-input"
+              placeholder="e.g. 1. e4 e5 2. Nf3 Nc6 3. Bb5"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="line-name">Line Name:</label>
+            <input type="text" id="line-name" placeholder="My Custom Line" />
+          </div>
+          <button id="save-line">Save Line</button>
+        </div>
+
+        <div class="custom-lines-list">
+          <h2>My Custom Lines</h2>
+          <ul id="custom-lines"></ul>
+        </div>
+        <div class="statistics">
+          <h3>Training Statistics</h3>
+          <div id="stats">
+            <p>Attempts: <span id="attempts">0</span></p>
+            <p>Correct Moves: <span id="correct">0</span></p>
+            <p>Incorrect Moves: <span id="incorrect">0</span></p>
+          </div>
+        </div>
+      </div>
     </div>
-    <footer onclick="window.open('https://www.instagram.com/sunil._.bhattarai')">
-        &copy; Sunil Bhattarai | All Rights Reserved.
+    <footer
+      onclick="window.open('https://www.instagram.com/sunil._.bhattarai')"
+    >
+      &copy; Sunil Bhattarai | All Rights Reserved.
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stockfish.js/11.0.0/stockfish.js"></script>
     <script src="script.js"></script>
-
-
-</body>
-
+  </body>
 </html>
